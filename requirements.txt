@@ -1,0 +1,11 @@
+decorator
+networkx
+pydotplus
+pyparsing
+nose
+ipaddress
+streamlit
+pyvis
+matplotlib
+pandas
+#pygraphviz
