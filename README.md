@@ -108,6 +108,12 @@ P2NMAP https://github.com/codemedici/P2NMAP
 
 albert https://github.com/haymovich/albert
 
+#### Future:
+
+* Dump into Excel spreadsheet or SQL database?
+* Import into Microsoft
+  Visio? https://support.office.com/en-gb/article/Create-a-detailed-network-diagram-by-using-external-data-in-Visio-Professional-1d43d1a0-e1ac-42bf-ad32-be436411dc08#bm2
+
 Pcap alternatives
 ---------------------
 
@@ -117,11 +123,6 @@ flowmeter https://github.com/alekzandr/flowmeter
 
 CapCSV-meter https://github.com/maliksh7/CapCSV-meter
 
-#### Future:
-
-* Dump into Excel spreadsheet or SQL database?
-* Import into Microsoft
-  Visio? https://support.office.com/en-gb/article/Create-a-detailed-network-diagram-by-using-external-data-in-Visio-Professional-1d43d1a0-e1ac-42bf-ad32-be436411dc08#bm2
 
 Misc notes
 ----------
