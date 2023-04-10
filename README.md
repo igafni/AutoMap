@@ -4,7 +4,6 @@ Network Graph Map Visualization
 The purpose of this tool is to produce a network diagram by collating network information gathered on remote hosts.
 Based on lorenzog/NetworkMap
 
-
 Example:
 
 * Log on host A as any user
@@ -37,17 +36,22 @@ You'll need a fairly recent Python version with setuptools.
 
 Usage
 -----
+
 #### Run Streamlit to host your website
 
 Run the tool on the command line:
 
     streamlit run app.py
 
+You can now view your Streamlit app in your browser.
 
-### Installing GraphViz
+  Local URL: http://localhost:8502
+
+
+### Installing GraphViz (Optional)
 
 If you want to automatically generate graphs (by default: yes) then you'll need
-pygraphviz installed. 
+pygraphviz installed.
 
 For windows systems:
 
@@ -88,16 +92,13 @@ If you get this error on a Fedora-based system:
 
 You need to install redhat-rpm-config. Source: http://stackoverflow.com/a/34641068/204634
 
-
 ##### fatal error C1083
 
 installed the latest graphviz using the latest win64 executable from graphviz.org
-    
+
 then installation using the following command
 
     pip install --global-option=build_ext --global-option="-IC:\Program Files\Graphviz\include" --global-option="-LC:\Program Files\Graphviz\lib" pygraphviz
-
-
 
 Possible alternatives
 ---------------------
