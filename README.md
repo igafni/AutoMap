@@ -1,4 +1,4 @@
-Network Graph Map Visualization
+Network Graph Mapper Visualization
 =================================
 
 The purpose of this tool is to produce a network diagram by collating network information gathered on remote hosts.
@@ -104,6 +104,15 @@ Possible alternatives
 ---------------------
 
 P2NMAP https://github.com/codemedici/P2NMAP
+
+Pcap alternatives
+---------------------
+
+pcap-analyser https://github.com/pkpraveen895/pcap-analyser
+
+flowmeter https://github.com/alekzandr/flowmeter
+
+CapCSV-meter https://github.com/maliksh7/CapCSV-meter
 
 #### Future:
 
