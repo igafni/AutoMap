@@ -29,6 +29,7 @@ if uploaded_file:
 
     if st.sidebar.button('Get NetFrenzy Graph'):
         with st.spinner("Please Wait..."):
+            # t = "http://127.0.0.1:7474/browser/"
             st.components.v1.iframe("http://localhost:8000/NetFrenzy.html", height=800, scrolling=True)
 
     if st.sidebar.button('Get Urls Graph'):
