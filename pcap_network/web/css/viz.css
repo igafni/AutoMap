@@ -1,0 +1,11 @@
+
+html, body {
+    font: 14pt arial;
+}
+    
+#viz {
+    width: calc(100% - 2px);
+    height: calc(100vh - 18px);
+    border: 1px solid lightgray;
+    font: 22pt arial;
+}

@@ -1,0 +1,94 @@
+
+.config-floater {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	z-index: 2;
+}
+.query-floater {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	z-index: 2;
+	background-color: rgba(255, 255, 255, 0.75);
+}
+#selected-floater {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	z-index: 2;
+	border: 1px solid lightgray;
+}
+#error-floater {
+	position: fixed;
+	left: 50%;
+	bottom: 20px;
+	transform: translate(-50%, 0%);
+	margin: 0 auto;
+	max-width: 100%;
+	display: none;
+}
+#configtitle, #queryui {
+	float: right;
+}
+#query {
+	width: 50vw;
+}
+#configtitle, #querytitle, .hq-item, #selected-floater a {
+	color: inherit;
+	text-decoration: inherit;
+}
+#query, #queryhistoryol, #error-message {
+	font-family: Courier;
+	font-size: 14px;
+}
+input, label {
+	vertical-align: middle;
+}
+label, #error-message, .error-close, #queryui div, #selected-info {
+	font-size: 14px;
+}
+.config-floater, .query-floater, #error-floater {
+	border: 1px solid lightgray;
+	padding: 2px;
+}
+#queryui div {
+	font-size: 14px;
+}
+#query-buttons {
+	display: inline;
+	position: fixed;
+	margin-left: 10px;
+	height: 18pt;
+}
+.query-button {
+	height: 100%;
+	width: 24px; 
+	position: relative;
+}
+.query-button-icon {
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+#queryhistory, #queryinfo {
+	display: none;
+}
+pre {
+	margin: 0px;
+}
+#error-message {
+	margin-right: 25px;
+}
+.error-close {
+	float: right;
+}
+
+input[type=text] {
+	font-size: 14px;
+	height: 16px;
+	line-height: 13px;
+	padding-top: 3px;
+}

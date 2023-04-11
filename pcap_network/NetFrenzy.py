@@ -1,0 +1,46 @@
+import sys
+import argparse
+
+import lib.pcap as pcap
+import lib.neo4j as neo4j
+import lib.connection as connection
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description='Import a pcap into Neo4j')
+    parser.add_argument('-c', '--config', type=str, help='Config json file', default='config.json')
+    parser.add_argument('-p', '--pcap', type=str, help='Path to pcap file')
+    parser.add_argument('-l', '--live', type=str, help='Capture live on specified interface')
+    parser.add_argument('-i', '--ignore', type=str,
+                        help='MAC address to ignore (like the GW which would correspond to all other IPs)')
+    parser.add_argument('-d', '--debug', action='store_true', help='Use pdb to debug Neo4j responses')
+    parser.add_argument('-da', '--debug-at', type=int, help='Use pdb to debug Neo4j responses at a specific iteration')
+    parser.add_argument('--debug-time', action='store_true', help='Enable Neo4j time performance tracking')
+    parser.add_argument('--debug-cache', action='store_true', help='Print cache stats after execution')
+    parser.add_argument('-nc', '--no-count', action='store_true', help='Disable count for progress bar')
+    parser.add_argument('--cache-max', type=int, help='Max cache size for each of the cache types', default=50)
+    parser.add_argument('--count', type=int, help='Number of packets in the pcap (optional)')
+    parser.add_argument('-r', '--reduce', action='store_true', help='Reduce information stored about connections')
+    if len(sys.argv) == 1:
+        parser.print_help()
+        sys.exit(1)
+    args = parser.parse_args()
+    return args
+
+
+def pipeline(file):
+    pc = pcap.Pcap(file, None)
+    n4j = neo4j.Neo4j()
+    conn = connection.Connection(config='config.json')
+    conn.init_config()
+    n4j.set_connection(conn)
+    n4j.set_connection(conn)
+    pc.do_count = False
+    pc.debug_time = True
+    pc.debug_cache = True
+    pc.cache_max = 50
+    pc.reduce = True
+    pc.start_process(n4j)
+
+FILE = "../pcap_files/network.pcap"
+pipeline(FILE)

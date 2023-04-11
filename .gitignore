@@ -14,7 +14,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+pcap_network/lib/
 lib64/
 parts/
 sdist/

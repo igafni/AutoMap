@@ -8,4 +8,10 @@ streamlit
 pyvis
 matplotlib
 pandas
+pyshark
+tqdm
+requests
+OuiLookup
+py2neo
+dpkt
 #pygraphviz

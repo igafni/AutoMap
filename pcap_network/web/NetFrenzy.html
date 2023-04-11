@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+	<head>
+
+		<title>NetFrenzy Neovis.js</title>
+	
+		<!-- CSS from the example HTML -->
+		<link rel="stylesheet" href="css/viz.css">
+		<!-- CSS for the custom UI -->
+		<link rel="stylesheet" href="css/ui.css">
+	
+		<!-- External Neovis library-->
+		<script src="https://cdn.neo4jlabs.com/neovis.js/v1.5.0/neovis.js"></script>
+
+		<!-- Initializes config, function called by document.body onload -->
+		<script src="js/onload.js"></script>
+		<!-- UI functionality -->
+		<script src="js/ui.js"></script>
+		<!-- An object containing helpful Cypher queries -->
+		<script src="js/helpfulqueries.js"></script>
+
+	</head>
+
+	<body onload="draw()">
+
+		<!-- Neo4j config panel -->
+		<div class="config-floater">
+			<a id="configtitle" onclick="toggleConfig()" href="#">Config</a>
+			<div id="configinputs">
+				</br>
+				<!-- Neo4j database connection information -->
+				<input name="server" value="bolt://localhost:7687" type="text" id="server">
+				<label for="server">Server</label></br>
+				<input name="username" value="neo4j" type="text" id="username">
+				<label for="username">Username</label></br>
+				<input name="password" value="neo4j" type="password" id="password">
+				<label for="password">Password</label></br>
+
+				<select name="layout" id="layout">
+					<option value="none">None</option>
+					<option value="hierarchical">Hierarchical</option>
+				</select>
+				<label for="layout">Graph layout</label></br>
+
+				<select name="sort" id="sort" disabled>
+					<option value="hubsize">Hubsize</option>
+					<option value="directed">Directed</option>
+				</select>
+				<label for="sort">Hierarchical sort</label></br>
+				
+				<!-- What property controls the CONNECTED relationship thiccness -->
+				<select name="weight" id="weight">
+					<option value="none">None</option>
+					<option value="data_size">Data</option>
+					<option value="count">Count</option>
+				</select>
+				<label for="weight">CONNECTED Weight</label></br>
+				
+				<!-- What property to caption CONNECTED relationships -->
+				<select name="caption" id="caption">
+					<option value="name">Name</option>
+					<option value="service">Service</option>
+					<option value="none">None</option>
+				</select>
+				<label for="caption">CONNECTED Caption</label></br>
+
+				<!-- What property controls the relationship thiccness -->
+				<select name="commweight" id="commweight">
+					<option value="none">None</option>
+					<option value="ports">Ports</option>
+					<option value="total">Total</option>
+					<option value="data">Data</option>
+				</select>
+				<label for="commweight">COMMUNICATES Weight</label>
+				
+				</br>
+				<input type="submit" id="submitconfig" value="Apply" onclick="applyConfig()">
+			</div>
+		</div>
+		
+		<!-- Neo4j query input -->
+		<div class="query-floater">
+			<a id="querytitle" onclick="toggleQuery()" href="#">Query</a> &nbsp;
+			<div id="queryui">
+				<input name="query" value="" type="text" id="query">
+				<div id="query-buttons">
+					<button class="query-button" title="run query" id="runquery" onclick="runQuery()">
+						<img class="query-button-icon" src="icons/play-fill.svg">
+					</button>
+					<button class="query-button" title="stabilize graph" onclick="window.viz.stabilize()">
+						<img class="query-button-icon" src="icons/pause-fill.svg">
+					</button>
+					<button class="query-button" title="toggle multiline" id="linetoggle" onclick="toggleInputMode()">
+						<img class="query-button-icon" src="icons/chevron-bar-expand.svg">
+					</button>
+					<button class="query-button" title="show info" onclick="toggleInfo()">
+						<img class="query-button-icon" src="icons/info-circle.svg">
+					</button>
+					<button class="query-button" title="show history" onclick="toggleHistory()">
+						<img class="query-button-icon" src="icons/clock-history.svg">
+					</button>
+				</div>
+				<div id="queryhistory">
+					<p>History</p>
+					<ol id="queryhistoryol"></ol>
+					<a href="#" class="hq-item" onclick="manage_qhistory_clear()">Clear</a>
+				</div>
+				<div id="queryinfo">
+					<p>Neo4j uses the Cypher query language to query the graph database. You can find a Cypher cheat sheet <a href="https://neo4j.com/docs/cypher-refcard/current/">here</a>.</p>
+					<a href="#" class="hq-item" onclick="createcommunity(0)">Create COMMUNICATES relationship, Community, and PageRank</a> (takes 20 seconds)
+					<p>Helpful queries:</p>
+					<ol id="customqueries"></ol>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Visualization canvas -->
+		<div id="viz"></div>
+
+		<!-- Selected floater -->
+		<div id="selected-floater">
+			<a href="#" onclick="toggleSelected()">Selected</a>
+			<div id="selected-info">
+			</div>
+		</div>
+
+		<!-- Error message floater -->
+		<div id="error-floater">
+			<a href="#" class="error-close" onclick="toggleError()">[x]</a>
+			<pre id="error-message"></pre>
+		</div>
+	</body>	
+</html>
+
+<!-- vim: ts=2 sts=2
+-->
