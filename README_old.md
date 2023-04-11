@@ -17,7 +17,7 @@ Example:
 * Ultimately, this tool produces a network diagram showing all hosts reachable
   from your compromised nodes.
 
-![Sample screenshot](example.png?raw=true "Simple Network Example")
+![Sample screenshot](images/example.png?raw=true "Simple Network Example")
 
 
 Installation
